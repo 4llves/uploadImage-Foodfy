@@ -20,7 +20,7 @@ routes.get("/site/show/:id", home.showRecipes); // Mostrar detalhes da receita
 routes.get("/admin/recipes/index", recipes.index); // Mostrar a lista de receitas (admin)
 routes.get("/admin/recipes/create", multer.array('photos', 6), recipes.create); // Mostrar formulário de nova receita (admin)
 routes.get("/admin/recipes/index/:id", recipes.show); // Exibir detalhes de uma receita (admin)
-routes.get("/admin/recipes/index/:id/edit", multer.array('photos', 6), recipes.edit); // Mostrar formulário de edição de receita (admin)
+routes.get("/admin/recipes/index/:id/edit", recipes.edit); // Mostrar formulário de edição de receita (admin)
 
 routes.post("/admin/recipes/index", recipes.post); // Cadastrar nova receita (admin)
 routes.put("/admin/recipes/index/:id", recipes.put); // Editar uma receita (admin)
