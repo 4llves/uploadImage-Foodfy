@@ -1,0 +1,38 @@
+{% extends 'layout.njk' %}
+
+{% block head %}
+    <title>Foodfy - Receitas</title>
+{% endblock %}
+
+
+{% block content %}
+
+    <main>        
+        <div class="top-header">
+            <h1>Gerenciar receitas</h1>
+            <a href="/admin/recipes/create" >Criar Receitas</a>
+        </div>
+
+        <div class="container">
+            {% for recipe in recipes %}
+                <div class="card">
+                    <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                    <div class="inCard">
+                        <h2>{{ recipe.title }}</h2>
+                        <p>por {{ recipe.chefname }}</p>
+                        <a href="/admin/recipes/index/{{ recipe.id }}">Visualizar</a>
+                    </div>
+                </div>
+            {% endfor %}        
+        </div>
+    </main>
+
+    <div class="pagination"
+        data-page = {{pagination.page}}
+        data-total = {{pagination.total}}
+        data-filter = {{filter}}
+    ></div>
+
+
+{% endblock %}
+

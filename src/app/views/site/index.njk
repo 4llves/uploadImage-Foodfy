@@ -1,0 +1,58 @@
+{% extends 'layout.njk' %}
+
+{% block head %}
+    <title>Foodfy - Home</title>
+{% endblock head %}
+
+{% block style %}
+    <link rel="stylesheet" href="/stylesSite.css">
+{% endblock style %}
+
+{% block header %}    
+        <a href="/site/index"><img src="/logo_black.png" alt=""></a>
+        <div class="menu">
+            <a href="#">Sobre</a>
+            <a href="/site/recipes">Receitas</a>
+            <a href="/site/chefs">Chefs</a>
+        </div>
+
+        <form action="#" method="GET">
+            <input
+                type="text"
+                name="filter"
+                placeholder="Buscar uma receita"
+                value={{filter}}
+            >
+            <button type="submit">Buscar</button>    
+        </form>
+{% endblock header %}
+
+
+
+{% block content %}  
+
+    <section class="hero">
+        <div class="intro">
+            <h1>As Melhores Receitas</h1>
+            <p>
+                Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro.
+            </p>
+        </div>
+        <img src="/chef.png" alt="">
+    </section>
+
+    <main>
+        <div class="content">            
+            {% for recipe in recipes %}            
+                <div class="card" id="{{ recipe.title }}">
+                    <a href="/site/show/{{recipe.id}}"><img src="{{ recipe.image }}" alt="Imagens de {{ recipe.title }}"></a>
+                    <h4 class="name_recet">{{ recipe.title }}</h4>
+                    <p class="name_chef">Por {{ recipe.chefname }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <a href="/admin/chefs/index"><button class="btnAdmin">Admin</button></a>    
+
+{% endblock content %}
