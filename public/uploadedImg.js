@@ -1,11 +1,12 @@
 const PhotosUpload = {
   input: "",
   preview: document.querySelector('#photos-preview'),
-  uploadLimit: 5,
+  uploadLimit: "",
   files: [],
-  handleFileInput(event) {
+  handleFileInput(event, uploadLimit) {
     const { files: fileList } = event.target
     PhotosUpload.input = event.target
+    PhotosUpload.uploadLimit = uploadLimit
 
     if (PhotosUpload.hasLimit(event)) return
     
@@ -130,7 +131,7 @@ const Lightbox = {
     Lightbox.target.style.bottom = 0
     Lightbox.closeButton.style.top = 0
   },
-  open() {
+  close() {
     Lightbox.target.style.opacity = 0
     Lightbox.target.style.top = "-100%"
     Lightbox.target.style.bottom = "initial"

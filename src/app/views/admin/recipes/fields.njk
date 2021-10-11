@@ -23,7 +23,7 @@
                     <div class="photo" id="{{image.id}}">
                         <img src="{{image.src}}" alt="{{image.name}}">
                         <i class="material-icons"
-                            onclick="PhotosUpload.removeOldPhoto(event)"
+                            onclick="PhotosUpload.removeOldPhoto(event, 5)"
                         >
                             close
                         </i>
@@ -50,12 +50,14 @@
     <div class="item">
         <div>Chef</div>
         <div>
-            <select name="chef">
+            <select name="chef_id">
                 <option disabled selected>Selecione um Chef</option>
                 {% for chef in chefOptions %}
                     <option
-                        value="{{ chef.id }}" {% if recipe.chef_id == chef.id %} selected {% endif %}>
-                        {{ chef.name }} 
+                        value="{{ chef.id }}"
+                        {% if recipe.chef_id == chef.id %} selected {% endif %}
+                    >
+                        {{ chef.name }}
                     </option>
                 {%endfor%}
             </select>

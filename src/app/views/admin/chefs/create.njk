@@ -9,7 +9,12 @@
         <button form="saving" type="submit">Salvar Chef</button>
     </div>
 
-    <form id="saving" method="POST" action="/admin/chefs/index/{{chef.id}}">
+    <form
+        id="saving"
+        method="POST"
+        action="/admin/chefs/index/{{chef.id}}"
+        enctype="multipart/form-data"        
+    >
     
         {% include 'admin/chefs/fields.njk' %}
 

@@ -15,7 +15,9 @@
         <div class="container-chefs">
             {% for chef in chefs %}
                 {# <div class="card-chef"> #}
-                    <img src="{{ chef.avatar_url }}" alt="{{ chef.title }}">
+                        {% if files %}
+                    <img src="{{ files[0].src }}" alt="{{ chef.title }}">
+                        {% endif %}
                     <div class="inCard-chef">                        
                         <p>{{ chef.name }}</p>
                         <a href="/admin/chefs/index/{{ chef.id }}">Visualizar</a>

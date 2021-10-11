@@ -7,13 +7,55 @@
         <div class="top-header">
             <h1>Receita: {{ recipe.title }}</h1>
             <a href="{{ recipe.id }}/edit">Editar Receita</a>
-        </div>
+        </div>        
+       
+        
+        <section class="product-single">
+            <div class="gallery">            
+                <div class="highlight">
+                {% if not files[0] %}
+                    <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO">
+                {% else %}
+                    <img
+                    src="{{files[0].src}}" 
+                    alt="{{files[0].name}}"
+                    onclick="Lightbox.open()"
+                    >
+                {% endif %}
+
+                <div class="lightbox-target">
+                    <img src="{{files[0].src}}" alt="{{files[0].name}}">
+                    <a
+                    href="#"
+                    class="lightbox-close"
+                    onclick="Lightbox.close()"
+                    >
+                    <i class="material-icons">close</i>
+                    </a>
+                </div>                              
+                </div>
+
+
+                <div class="gallery-preview">
+                {% for image in files %}
+                    <img
+                    src="{{image.src}}" 
+                    alt="{{image.name}}"
+                    {% if loop.index0 == 0 %}
+                    class="active"
+                    {% endif %}
+                    onclick="ImageGallery.setImage(event)"
+                    >
+                {% endfor %}
+            </div>
+        </section>
+
 
         <div class="recipe-header">
-            <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
             <h1>{{ recipe.title }}</h1>
             <h2>Por {{ recipe.chefname }}</h2>
         </div>
+
 
         <div class="recipe-content">
             <div id="ingredients" class="topic">                
@@ -24,7 +66,6 @@
                         {% endfor %}
                     </ul>                
             </div>
-
 
             <div id="preparation" class="topic">                
                 <h3>Modo de Preparo</h3>                

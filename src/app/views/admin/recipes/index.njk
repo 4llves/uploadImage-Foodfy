@@ -16,14 +16,14 @@
         <div class="container">
             {% for recipe in recipes %}
                 <div class="card">
-                    <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                    <img src="{{ files[0].src }}" alt="{{ recipe.title }}">
                     <div class="inCard">
                         <h2>{{ recipe.title }}</h2>
                         <p>por {{ recipe.chefname }}</p>
                         <a href="/admin/recipes/index/{{ recipe.id }}">Visualizar</a>
                     </div>
                 </div>
-            {% endfor %}        
+            {% endfor %}
         </div>
     </main>
 

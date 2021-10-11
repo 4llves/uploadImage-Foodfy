@@ -163,19 +163,11 @@ main .top-header a {
     text-align: center;
 }
 
-.recipe-header img {
-    border-radius: 15px;
-    width: 940px;
-    height: 280px;
-    margin-top: 24px;
-}
-
 .recipe-header h1 {
     font-weight: bold;
     font-size: 36px;
     line-height: 42px;
     color: #111111;
-    margin-top: 50px;
     text-align: center;
 }
 
@@ -346,11 +338,11 @@ button[type="submit"] {
 }
 
 .divItem .item input[name="title"],
-.divItem .item select[name="chef"] {
+.divItem .item select[name="chef_id"] {
     width: 460px;
 }
 
-.item select[name="chef"] {
+.item select[name="chef_id"] {
     background: #FFFFFF;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
@@ -435,6 +427,153 @@ form .item #photos-preview img {
     border: 1px solid #DDD;
     border-radius: 3.5px;
 }
+
+#photos-preview .photo {
+    position: relative;  
+  }
+  
+  #photos-preview .photo i {
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    cursor: pointer;
+  
+    background: rgba(255, 255, 255, 0.8);
+    color: #FF0000;
+  
+    width: 100%;
+    height: 100%;
+    
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: 250%;
+    font-weight: bold;
+    
+  
+    transition: opacity 300ms;
+  
+    opacity: 0;
+  }
+  
+  #photos-preview .photo:hover i {
+    opacity: 1;
+  }
+
+/*** PHOTOS GALLERY ***/
+
+.product-single .gallery {
+    width: 100%;
+  }
+  
+  .product-single .highlight > img {
+    width: 100%;
+    height: 280px;
+    border-radius: 15px;
+    margin-top: 24px;
+  
+    object-fit: none;
+    object-position: 50% 50%;
+    border: 1px solid #efefef;
+  
+    cursor: zoom-in;
+  }
+  
+  .product-single .gallery-preview {
+    display: grid;       
+
+    grid-template-columns: repeat(5, 1fr);
+
+    grid-gap: 2px;
+    height: 50px;
+    width: 50px;       
+  } 
+
+  
+  .product-single .gallery-preview img {        
+    height: 50px;
+    width: 50px;
+
+    border: 1px solid #DDDDDD;
+
+
+    border-radius: 3.5px;
+
+  
+    object-fit: cover;
+  
+    opacity: 0.6;
+  
+    cursor: pointer;
+  
+    transition: 200ms;
+  }
+  
+  .product-single .gallery-preview img:hover,
+  .product-single .gallery-preview img.active{
+    opacity: 1;
+  }
+  
+  /* LIGHTBOX PRODUCT GALLERY */
+  .product-single .highlight .lightbox-target {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+  
+    overflow: hidden;
+    z-index: 100;
+  
+    top: -100%;
+    left: 0;
+  
+    opacity: 0;
+  
+    transition: opacity 400ms;
+  }
+  
+  .product-single .highlight .lightbox-target img {
+    margin: auto;
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    border-radius: 10px;
+  
+    background-color: white;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, .3);
+  
+    width: 90%;
+    height: 90%;
+  
+    object-fit: contain;
+  }
+  
+  .product-single .highlight a.lightbox-close {
+    width: 50px;
+    height: 50px;
+
+    color: #ff0000;
+  
+    background: white;
+    border-radius: 15% 0% 0% 15%;
+  
+    position: absolute;
+    top: -80px;
+    right: 0;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    transition: 400ms;
+  }
 
 
 /*** CHEFS INDEX ***/
@@ -538,6 +677,17 @@ form .item #photos-preview img {
     font-size: 14px;
     color: #777777;
     margin-bottom: 10px;
+}
+
+/*
+CHEF EDIT
+*/
+
+.item .no-edit {
+    opacity: .36;
+    font-family: Helvetica;
+    font-size: 16px;
+    color: #111111;
 }
 
 /*PAGINATION*/

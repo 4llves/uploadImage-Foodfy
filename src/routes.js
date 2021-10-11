@@ -18,12 +18,12 @@ routes.get("/site/show/:id", home.showRecipes); // Mostrar detalhes da receita
 
 //ADMIN-RECIPES
 routes.get("/admin/recipes/index", recipes.index); // Mostrar a lista de receitas (admin)
-routes.get("/admin/recipes/create", multer.array('photos', 6), recipes.create); // Mostrar formulário de nova receita (admin)
+routes.get("/admin/recipes/create", recipes.create); // Mostrar formulário de nova receita (admin)
 routes.get("/admin/recipes/index/:id", recipes.show); // Exibir detalhes de uma receita (admin)
 routes.get("/admin/recipes/index/:id/edit", recipes.edit); // Mostrar formulário de edição de receita (admin)
 
-routes.post("/admin/recipes/index", recipes.post); // Cadastrar nova receita (admin)
-routes.put("/admin/recipes/index/:id", recipes.put); // Editar uma receita (admin)
+routes.post("/admin/recipes/index", multer.array('photos', 6), recipes.post); // Cadastrar nova receita (admin)
+routes.put("/admin/recipes/index/:id", multer.array('photos', 6), recipes.put); // Editar uma receita (admin)
 routes.delete("/admin/recipes/index", recipes.delete); // Deletar uma receita (admin)
 
 //ADMIN-CHEFS
@@ -32,8 +32,8 @@ routes.get("/admin/chefs/create", chefs.create); // Mostrar formulário de novo 
 routes.get("/admin/chefs/index/:id", chefs.show); // Exibir detalhes de um chef (admin)
 routes.get("/admin/chefs/index/:id/edit", chefs.edit); // Mostrar formulário de edição de chef (admin)
 
-routes.post("/admin/chefs/index", chefs.post); // Cadastrar novo chef (admin)
-routes.put("/admin/chefs/index/:id", chefs.put); // Editar um chef (admin)
+routes.post("/admin/chefs/index", multer.array('photos', 1), chefs.post); // Cadastrar novo chef (admin)
+routes.put("/admin/chefs/index/:id", multer.array('photos', 1), chefs.put); // Editar um chef (admin)
 routes.delete("/admin/chefs/index", chefs.delete); // Deletar um chef (admin)
 
 

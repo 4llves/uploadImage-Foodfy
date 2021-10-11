@@ -5,12 +5,12 @@
 <div class="recipe">
 
         <div class="top-header">
-            <h1>Chef: {{ chef.name}}</h1>
+            <h1>Chef: {{ chef.name }}</h1>
             <a href="{{ chef.id }}/edit">Editar Chef</a>
         </div>
 
         <div class="chef-header">
-            <img src="{{ chef.avatar_url }}" alt="{{ chef.title }}">
+            <img src="{{ files[0].src }}" alt="{{ chef.name }}">
             <h1>{{ chef.name }}</h1>
             <h2>{{ chef.total_recipes }} receitas</h2>            
         </div>
